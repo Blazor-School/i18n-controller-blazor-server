@@ -1,0 +1,11 @@
+﻿@page "/i18n"
+@using Microsoft.Extensions.Localization
+@using System.Globalization
+@inject IStringLocalizer<I18N> Localizer
+@inject NavigationManager NavigationManager
+
+<h1>Remember to refresh the page (F5) to see the updated language</h1>
+<h3>Example date: @DateTime.Now</h3>
+<h3>"Name" in @CultureInfo.CurrentCulture.DisplayName: @Localizer["Name"]</h3>
+<h3>Translate successful? @(!Localizer["Name"].ResourceNotFound)</h3>
+<h3>Translation resource location: @Localizer["Name"].SearchedLocation</h3>
