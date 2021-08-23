@@ -1,7 +1,28 @@
 ﻿@page "/i18n"
+@using Microsoft.Extensions.Localization
+@using System.Globalization
+@inject IStringLocalizer<I18N> Localizer
+@inject NavigationManager NavigationManager
 
-<h3>I18N</h3>
+<h3>Example date: @DateTime.Now</h3>
+<h3>"Name" in @CultureInfo.CurrentCulture.DisplayName: @Localizer["Name"]</h3>
+<h3>Translate successful? @(!Localizer["Name"].ResourceNotFound)</h3>
+<h3>Translation resource location: @Localizer["Name"].SearchedLocation</h3>
+
+<select @onchange="OnChangeLanguage">
+    <option value="">Select</option>
+    <option value="en">English</option>
+    <option value="fr">France</option>
+</select>
 
 @code {
+    private void OnChangeLanguage(ChangeEventArgs e)
+    {
+        var uri = new Uri(NavigationManager.Uri).GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
+        var culture = CultureInfo.GetCultureInfo(e.Value as string);
+        var cultureEscaped = Uri.EscapeDataString(culture.Name);
+        var uriEscaped = Uri.EscapeDataString(uri);
 
+        NavigationManager.NavigateTo($"Culture/Set?culture={cultureEscaped}&redirectUri={uriEscaped}", forceLoad: true);
+    }
 }

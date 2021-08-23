@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "I18NControllerBlazorServer": {
+    "I18NControllerCookiesBlazorServer": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

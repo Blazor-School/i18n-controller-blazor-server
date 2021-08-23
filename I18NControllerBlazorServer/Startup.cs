@@ -1,16 +1,13 @@
-using I18NControllerBlazorServer.Data;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Globalization;
 
-namespace I18NControllerBlazorServer
+namespace I18NControllerCookiesBlazorServer
 {
     public class Startup
     {
@@ -27,6 +24,15 @@ namespace I18NControllerBlazorServer
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddControllers();
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
+            services.Configure<RequestLocalizationOptions>(options =>
+            {
+                options.SetDefaultCulture("fr");
+                options.AddSupportedCultures(new[] { "en", "fr" });
+                options.AddSupportedUICultures(new[] { "en", "fr" });
+                options.RequestCultureProviders = new List<IRequestCultureProvider>() { new CookieRequestCultureProvider() };
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,12 +47,13 @@ namespace I18NControllerBlazorServer
                 app.UseExceptionHandler("/Error");
             }
 
+            app.UseRequestLocalization();
             app.UseStaticFiles();
-
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllers();
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
             });
