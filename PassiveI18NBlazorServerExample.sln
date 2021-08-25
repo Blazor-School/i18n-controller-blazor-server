@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "I18NControllerCookiesBlazorServer", "I18NControllerBlazorServer\I18NControllerCookiesBlazorServer.csproj", "{B431E3D8-5B10-4725-9D78-2D8AC42C74CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "I18NUrlBlazorServer", "I18NUrlBlazorServer\I18NUrlBlazorServer.csproj", "{FE21D0AE-CB56-4A52-B837-2A775A29A993}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "I18NUrlBlazorServer", "I18NUrlBlazorServer\I18NUrlBlazorServer.csproj", "{FE21D0AE-CB56-4A52-B837-2A775A29A993}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "I18NRequestHeaderBlazorServer", "I18NRequestHeaderBlazorServer\I18NRequestHeaderBlazorServer.csproj", "{27C043A8-21F9-41B9-8EFA-19C9F120CD1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{FE21D0AE-CB56-4A52-B837-2A775A29A993}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE21D0AE-CB56-4A52-B837-2A775A29A993}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE21D0AE-CB56-4A52-B837-2A775A29A993}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27C043A8-21F9-41B9-8EFA-19C9F120CD1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27C043A8-21F9-41B9-8EFA-19C9F120CD1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27C043A8-21F9-41B9-8EFA-19C9F120CD1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27C043A8-21F9-41B9-8EFA-19C9F120CD1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
